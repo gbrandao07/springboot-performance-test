@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  wiremock:
+    image: wiremock/wiremock:2.30.1
+    container_name: wiremock
+    ports:
+      - "8087:8080"
+    volumes:
+      - ./wiremock/mappings:/home/wiremock/mappings
+    networks:
+      - mynetwork
+
+  spring-boot-performance-test:
+    build:
+      context: springboot-performance-test
+      dockerfile: Dockerfile
+    container_name: spring-boot-performance-test
+    ports:
+      - "8070:8070"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
+
