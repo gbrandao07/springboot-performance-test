@@ -1,9 +1,0 @@
-/Users/gbrandao/Documents/projects/pocs/performance/springboot-performance-test/src/main/java/com/brandao/performance/service/model/WeatherDomain.java
-/Users/gbrandao/Documents/projects/pocs/performance/springboot-performance-test/src/main/java/com/brandao/performance/service/WeatherService.java
-/Users/gbrandao/Documents/projects/pocs/performance/springboot-performance-test/src/main/java/com/brandao/performance/service/model/WEATHER.java
-/Users/gbrandao/Documents/projects/pocs/performance/springboot-performance-test/src/main/java/com/brandao/performance/utils/mappers/IWeatherMapper.java
-/Users/gbrandao/Documents/projects/pocs/performance/springboot-performance-test/src/main/java/com/brandao/performance/dataprovider/openfeign/ExternalWeatherApiClient.java
-/Users/gbrandao/Documents/projects/pocs/performance/springboot-performance-test/src/main/java/com/brandao/performance/entrypoint/dto/WeatherResponse.java
-/Users/gbrandao/Documents/projects/pocs/performance/springboot-performance-test/src/main/java/com/brandao/performance/PerformanceApplication.java
-/Users/gbrandao/Documents/projects/pocs/performance/springboot-performance-test/src/main/java/com/brandao/performance/dataprovider/model/WeatherClientResponse.java
-/Users/gbrandao/Documents/projects/pocs/performance/springboot-performance-test/src/main/java/com/brandao/performance/entrypoint/WeatherApiRestController.java
