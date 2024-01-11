@@ -11,11 +11,11 @@ services:
     networks:
       - mynetwork
 
-  spring-boot-performance-test:
+  springboot-api:
     build:
-      context: springboot-performance-test
+      context: springboot-api
       dockerfile: Dockerfile
-    container_name: spring-boot-performance-test
+    container_name: springboot-api
     ports:
       - "8070:8070"
     networks:
