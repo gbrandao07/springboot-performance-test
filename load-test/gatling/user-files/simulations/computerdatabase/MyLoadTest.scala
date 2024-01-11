@@ -15,8 +15,8 @@ class MyLoadTest extends Simulation {
 
   setUp(
     scn.inject(
-      rampUsersPerSec(1) to 100 during (30 seconds),
-      constantUsersPerSec(50) during (1 minute) 
+      rampUsersPerSec(1) to 300 during (30 seconds),
+      constantUsersPerSec(150) during (1 minute) 
     ).protocols(httpConf)
   )
 }
