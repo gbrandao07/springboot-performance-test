@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 @RestController
 public class WeatherApiRestController {
@@ -20,8 +21,8 @@ public class WeatherApiRestController {
     }
 
     @GetMapping("/weather")
-    public ResponseEntity<WeatherResponse> getWeather(@RequestParam String cityCode) {
+    public Mono<WeatherResponse> getWeather(@RequestParam String cityCode) {
         WeatherResponse response = mapper.weatherDomainToWeatherResponse(service.getWeather(cityCode));
-        return ResponseEntity.ok().body(response);
+        return Mono.just(response);
     }
 }
