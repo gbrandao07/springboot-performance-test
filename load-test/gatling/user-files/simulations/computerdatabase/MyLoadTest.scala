@@ -15,8 +15,7 @@ class MyLoadTest extends Simulation {
 
   setUp(
     scn.inject(
-      rampUsersPerSec(1) to 300 during (30 seconds),
-      constantUsersPerSec(150) during (1 minute) 
+      atOnceUsers(100) // Envia todas as 100 requisições simultaneamente
     ).protocols(httpConf)
   )
 }
