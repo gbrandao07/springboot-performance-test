@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wiremock
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: wiremock
+  template:
+    metadata:
+      labels:
+        app: wiremock
+    spec:
+      containers:
+      - name: wiremock
+        image: wiremock/wiremock:3.3.1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: WIREMOCK_OPTIONS
+          value: "--container-threads 500"
+        resources:
+          requests:
+            cpu: 500m
+            memory: 400Mi
+          limits:
+            cpu: 1000m
+            memory: 1024Mi
+        volumeMounts:
+          - mountPath: /home/wiremock/mappings
+            name: wiremock-dir
+          - mountPath: /home/wiremock/mappings/external-weather-api.json
+            name: wiremock-file
+      volumes:
+        - name: wiremock-dir
+          hostPath:
+            path: /Users/gbrandao/Documents/projects/pocs/springboot-performance-test/wiremock/mappings
+            type: DirectoryOrCreate
+        - name: wiremock-file
+          hostPath:
+            path: /Users/gbrandao/Documents/projects/pocs/springboot-performance-test/wiremock/mappings/external-weather-api.json
+            type: FileOrCreate
