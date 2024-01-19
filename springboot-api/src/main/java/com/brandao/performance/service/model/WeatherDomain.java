@@ -1,5 +1,4 @@
 package com.brandao.performance.service.model;
 
-public record WeatherDomain (WEATHER weather, String temperature) {
-
+public record WeatherDomain(String weather, String temperature, String unit) {
 }

@@ -6,12 +6,12 @@ public enum WEATHER {
     CLOUDED;
 
     public static WEATHER fromString(String weather) {
-        switch (weather) {
-            case "Sunny": return SUNNY;
-            case "Rainy": return RAINY;
-            case "Clouded": return CLOUDED;
-            default: return SUNNY;
-        }
+        return switch (weather) {
+            case "Sunny" -> SUNNY;
+            case "Rainy" -> RAINY;
+            case "Clouded" -> CLOUDED;
+            default -> SUNNY;
+        };
     }
 }
 

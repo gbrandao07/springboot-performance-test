@@ -1,26 +1,34 @@
 package com.brandao.performance.service;
 
-import com.brandao.performance.dataprovider.model.WeatherClientResponse;
-import com.brandao.performance.dataprovider.openfeign.ExternalWeatherApiClient;
-import com.brandao.performance.service.model.WEATHER;
+import com.brandao.performance.dataprovider.model.WeatherDTOResponse;
+import com.brandao.performance.dataprovider.openfeign.ExternalWeatherOpenFeignClient;
+import com.brandao.performance.dataprovider.webclient.ExternalWeatherWebClient;
 import com.brandao.performance.service.model.WeatherDomain;
-import com.brandao.performance.utils.mappers.IWeatherMapper;
+import com.brandao.performance.utils.IMapper;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
+
+import java.util.List;
 
 @Service
 public class WeatherService {
 
-    private final ExternalWeatherApiClient apiClient;
+    private final ExternalWeatherOpenFeignClient openFeignClient;
+    private final ExternalWeatherWebClient webClient;
 
-    private final IWeatherMapper mapper;
+    private final IMapper mapper;
 
-    public WeatherService(ExternalWeatherApiClient apiClient, IWeatherMapper mapper) {
-        this.apiClient = apiClient;
+    public WeatherService(ExternalWeatherOpenFeignClient openFeignClient, ExternalWeatherWebClient webClient, IMapper mapper) {
+        this.openFeignClient = openFeignClient;
+        this.webClient = webClient;
         this.mapper = mapper;
     }
 
-    public WeatherDomain getWeather(String cityCode) {
-        WeatherClientResponse response = apiClient.getWeather(cityCode);
-        return mapper.weatherClientResponseToWeatherDomain(response);
+    public List<WeatherDomain> getWeather(String cityCode) {
+        return mapper.weatherExternalApiResponseToWeatherDomain(openFeignClient.getWeather(cityCode));
+    }
+
+    public Flux<WeatherDomain> getWeatherReactive(String cityCode) {
+        return mapper.weatherExternalApiResponseFluxToWeatherDomainFlux(webClient.getWeather(cityCode));
     }
 }

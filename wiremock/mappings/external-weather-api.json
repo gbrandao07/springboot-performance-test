@@ -10,11 +10,10 @@
   },
   "response": {
     "status": 200,
-    "fixedDelayMilliseconds": 5000,
+    "fixedDelayMilliseconds": 2000,
     "headers": {
        "Content-Type": "application/json"
     },
-    "body": "{\"weather\": \"Clouded\", \"temperature\": \"32\", \"unit\": \"celsius\"}"
+    "body": "[{\"weather\": \"Clouded\", \"temperature\": \"32\", \"unit\": \"celsius\"}]"
   }
 }
-
