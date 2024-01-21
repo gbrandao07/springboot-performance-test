@@ -8,7 +8,6 @@ services:
       - "8087:8080"
     volumes:
       - ./wiremock/mappings:/home/wiremock/mappings
-      - ./wiremock/files:/home/wiremock/__files
     networks:
       - mynetwork
     environment:

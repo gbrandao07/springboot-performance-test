@@ -7,7 +7,7 @@ import scala.concurrent.duration._
 class ReactiveApiLoadTest extends Simulation {
 
   val httpConf = http
-    .baseUrl("http://localhost:30160")
+    .baseUrl("http://localhost:56612")
 
   val scn = scenario("ReactiveApiLoadTestScenario")
     .exec(http("GetRequest")
@@ -15,7 +15,7 @@ class ReactiveApiLoadTest extends Simulation {
 
   setUp(
     scn.inject(
-      atOnceUsers(300)
+      atOnceUsers(500)
     ).protocols(httpConf)
   )
 }
