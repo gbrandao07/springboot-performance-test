@@ -37,7 +37,7 @@ mvn clean install
 
 * Com o Minikube devidamente instalado, definir a VM provida pelo mesmo como Docker Registry:
 ```
-minikube start --memory 8192 --cpus 4
+minikube start --memory 4096 --cpus 4
 eval $(minikube docker-env)
 ```
 
