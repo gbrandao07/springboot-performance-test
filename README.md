@@ -26,7 +26,7 @@ Contém os cenários para execução dos testes de carga.
 * Maven 3x ou superior
 * Docker
 * Docker compose
-* Minikube instalado com 4 VCores e 8Gb de Memória RAM
+* Minikube instalado com 4 VCores e 4Gb de Memória RAM
 
 # Orientações para execução
 
